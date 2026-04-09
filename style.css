@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: yellow;
+    --bg: #091a28;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.foto-logo {
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.enlaces-navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.enlaces-navbar li {
+    list-style: none;
+}
+
+.enlaces-navbar {
+    color: white;
+}
