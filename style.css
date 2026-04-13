@@ -1,3 +1,4 @@
+/* ================= CONFIGURACIÓN BASE ================= */
 * {
     margin: 0;
     padding: 0;
@@ -5,50 +6,406 @@
 }
 
 :root {
-    --primary-color: yellow;
-    --bg: #091a28;
+    --bg-color: rgb(9, 26, 40); 
+    --bg-secundario: rgb(15, 35, 55);
+    /* EL NUEVO AZUL ELÉCTRICO */
+    --primary-color: rgb(0, 168, 255); 
+    --text-blanco: rgb(240, 240, 240);
+    --text-gris: rgb(180, 180, 180);
+    --sombra-suave: rgba(0, 0, 0, 0.4);
+    --sombra-fuerte: rgba(0, 0, 0, 0.7);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg);
-    color: white;
+    background-color: var(--bg-color);
+    color: var(--text-blanco);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
-.logo {
+/* ================= HEADER STICKY ================= */
+.header-fijo {
+    background-color: var(--bg-secundario);
+    box-shadow: 0 4px 15px var(--sombra-suave);
+    padding: 10px 0; /* Un poco menos de padding para que sea más fino */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* En escritorio el menu interno no debe tener estilos de caja */
+.menu-interno {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Ajuste para que la lista de links sea horizontal en PC */
+.navbar-nav {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
-.foto-logo {
+.nav-link {
+    color: var(--text-blanco) !important;
+    padding: 0 !important; /* Quitamos padding de bootstrap */
+}
+
+.logo img {
     width: 50px;
     height: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
 }
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
-    padding-top: 10px;
-}
 
 .enlaces-navbar {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
-}
-
-.enlaces-navbar li {
+    gap: 30px;
     list-style: none;
 }
 
-.enlaces-navbar {
-    color: white;
+.enlaces-navbar a {
+    color: var(--text-blanco);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.enlaces-navbar a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-blanco);
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* ================= SECCIÓN FUSIONADA (INICIO) ================= */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.fusion-inicio {
+    max-width: 950px;
+    margin: 0 auto;
+    background-color: var(--bg-secundario);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px var(--sombra-suave);
+}
+
+.fusion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.fusion-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fusion-texto h1 {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.fusion-texto h2 {
+    font-size: 1.8rem;
+    color: var(--text-gris);
+    margin-bottom: 10px;
+}
+
+.fusion-texto p {
+    font-size: 1.15rem;
+    color: var(--text-blanco);
+    line-height: 1.7;
+}
+
+.fusion-foto {
+    display: flex;
+    justify-content: center;
+}
+
+.foto-principal {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 15px 15px 30px var(--sombra-fuerte);
+    object-fit: cover;
+    border: 3px solid var(--primary-color); /* Borde azul facha */
+}
+
+.divisor-interno {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 40px 0;
+}
+
+.divisor {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 80px 0;
+}
+
+/* ================= HABILIDADES ================= */
+.habilidades-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skill-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.skill-nombre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.skill-nombre img {
+    width: 24px;
+    height: 24px;
+}
+
+.barra-fondo {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.titulo-herramientas {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.otras-herramientas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.herramienta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.herramienta-item img {
+    width: 22px;
+    height: 22px;
+}
+
+/* ================= EXPERIENCIA Y PROYECTOS TÍTULOS ================= */
+.experiencia, .proyectos {
+    margin-bottom: 80px;
+}
+
+.experiencia h2, .proyectos h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ================= EXPERIENCIA ITEM ================= */
+.timeline-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-secundario);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 25px var(--sombra-suave);
+}
+
+.timeline-item {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.timeline-item .data {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-item h3 {
+    margin-bottom: 10px;
+}
+
+/* ================= PROYECTOS CARDS ================= */
+.contenedor-proyectos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.proyecto-card {
+    background-color: var(--bg-secundario);
+    width: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 8px 8px 20px var(--sombra-suave);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 12px 12px 25px var(--sombra-fuerte);
+}
+
+.proyecto-img img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.proyecto-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.proyecto-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.botones-proyecto {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-proyecto {
+    flex: 1;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.btn-proyecto:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* ================= FOOTER ================= */
+.footer-facha {
+    background-color: var(--bg-secundario);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid rgba(0, 168, 255, 0.2);
+}
+
+.footer-facha p {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.social-links-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links-footer a {
+    color: var(--text-gris);
+    font-size: 1.6rem;
+    transition: 0.3s;
+}
+
+.social-links-footer a:hover {
+    color: var(--primary-color);
+}
+
+/* ================= RESPONSIVE (Bootstrap Ajustes) ================= */
+@media (max-width: 767px) {
+    .menu-interno {
+        display: flex;
+        flex-direction: column; /* Apilado en vertical */
+        background-color: var(--bg-secundario);
+        padding: 20px;
+        border-top: 2px solid var(--primary-color);
+        /* Quitamos el margin-top de aquí si lo tenía y usamos padding */
+        margin-top: 10px; 
+        border-radius: 10px;
+        box-shadow: 0 10px 15px var(--sombra-suave);
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .fusion-header {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .fusion-texto h1 { font-size: 2.8rem; }
+    .foto-principal { width: 220px; height: 220px; }
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
 }
